@@ -128,5 +128,26 @@
   });
 })();
 
+function toggleContactMenu(menuId) {
+  const selectedMenu = document.getElementById(menuId);
+  if (!selectedMenu) return;
+
+  document.querySelectorAll(".floating-menu").forEach(menu => {
+    if (menu !== selectedMenu) {
+      menu.classList.remove("show");
+    }
+  });
+
+  selectedMenu.classList.toggle("show");
+}
+
+document.addEventListener("click", function (event) {
+  if (!event.target.closest(".floating-contact")) {
+    document.querySelectorAll(".floating-menu").forEach(menu => {
+      menu.classList.remove("show");
+    });
+  }
+});
+
 
 
